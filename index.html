@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('neon-bg.jpg'); 
+            /* Moderner, animierter Neon-Farbverlauf als Hintergrund */
+            background: linear-gradient(135deg, #030712 0%, #0b1528 50%, #030712 100%);
             background-attachment: fixed; 
             background-size: cover; 
             background-position: center; 
@@ -58,7 +59,6 @@
         
         .button {
             display: inline-block;
-            margin-top: 15px;
             padding: 12px 24px;
             background-color: #00d2ff !important;
             color: #030712 !important;
@@ -66,6 +66,8 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s;
+            text-align: center;
+            box-sizing: border-box;
         }
         
         .button:hover {
@@ -89,17 +91,13 @@
             
             <p>Willkommen auf meinem Bewerbungs-Dashboard. Aktuell absolviere ich eine berufliche Orientierung an der BBS Westmünsterland (Borken) mit Fokus auf IT-Infrastruktur und Systemintegration.</p>
             
-            <div style="text-align: left; margin: 20px 0; background: rgba(0, 210, 255, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid #00ffcc;">
-                <strong style="display: block; margin-bottom: 5px; color: #00d2ff !important;">📁 REPO_CONTENTS:</strong>
-                <p style="margin: 5px 0; font-size: 14px; color: #ffffff;">📄 Lebenslauf & Anschreiben</p>
-                <p style="margin: 5px 0; font-size: 14px; color: #ffffff;">🎓 Schulzeugnisse & Zertifikate</p>
-                <p style="margin: 5px 0; font-size: 14px; color: #ffffff;">🚀 Erste Coding-Erfolge (HTML/CSS/JS)</p>
-            </div>
-
             <p><strong>Zielsetzung:</strong> Ausbildung zum Fachinformatiker für Systemintegration ab dem 25.08.2026.</p>
             
-            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                <a href="spiel.html" class="button">Mathe-Spiel.exe 🧠</a>
+            <!-- Die neuen, einheitlichen Buttons untereinander -->
+            <div style="display: flex; flex-direction: column; gap: 12px; align-items: stretch; margin-top: 25px;">
+                <a href="lebenslauf.pdf" target="_blank" class="button">📄 Lebenslauf & Anschreiben</a>
+                <a href="zeugnisse.pdf" target="_blank" class="button">🎓 Schulzeugnisse & Zertifikate</a>
+                <a href="spiel.html" class="button">🚀 Coding-Erfolg: Mathe-Spiel.exe</a>
             </div>
         </div>
 
