@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Start</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('neon-bg.jpg'); 
+            background-attachment: fixed; 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-color: #030712; 
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            gap: 30px; 
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(10px); 
+            border: 2px solid #00d2ff; 
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3); 
+            text-align: center;
+            max-width: 350px;
+        }
+        
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            object-position: top; 
+            border-radius: 50%;
+            border: 3px solid #00ffcc; 
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4); 
+        }
+        
+        h1 { color: #00d2ff !important; }
+        p { color: #ffffff !important; line-height: 1.5; }
+        strong { color: #00ffcc !important; }
+        
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #00d2ff !important;
+            color: #030712 !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .button:hover {
+            background-color: #00ffcc !important; 
+        }
+
+        @media (max-width: 600px) {
+            .main-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <div class="card">
+            <h1>Hallo zusammen! 👋</h1>
+            <p>Ich bin gerade in der BBS Borken und das ist meine erste HTML Webseite. Teste unten mein Mathe Spiel, viel glück.</p>
+            <p><strong>Mein Ziel:</strong> Produktiv sein und etwas Sinnvolles lernen!</p>
+            
+            <a href="spiel.html" class="button">Mathe-Spiel starten 🧠</a>
+        </div>
+
+        <img src="Neu02.jpg" alt="Mein Profilbild" class="profile-pic">
+
+    </div>
+
+</body>
+</html>
