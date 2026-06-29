@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware-Guide – Jens Overkämping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #030712 0%, #0b1528 50%, #030712 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid #00d2ff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            box-sizing: border-box;
+        }
+        h1, h2 { color: #00d2ff; margin-top: 0; }
+        .component-box { background: rgba(3, 7, 18, 0.5); padding: 15px; margin: 15px 0; border-left: 3px solid #00ffcc; border-radius: 4px; }
+        .component-box strong { color: #00ffcc; font-size: 18px; }
+        p { line-height: 1.6; }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .back-btn:hover { background-color: #00ffcc; color: #030712; box-shadow: 0 0 10px rgba(0, 255, 204, 0.4); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← Zurück zum Profil</a>
+        <h1>🖥️ Homelab-Server Hardwarekonfiguration</h1>
+        <p>Analyse und Auswahl optimaler Hardwarekomponenten für den Aufbau eines energieeffizienten Virtualisierungs-Heimservers.</p>
+
+        <div class="component-box">
+            <strong>Prozessor (CPU): Intel Core i3-12100 oder AMD Ryzen 5 4600G</strong><br>
+            <p>Für kleine Virtualisierungsserver (z.B. mit Proxmox VE) sind dedizierte Server-CPUs oft zu teuer und stromhungrig. Moderne Desktop-Prozessoren bieten genug Kerne und Threads für mehrere Linux-Container bei extrem geringem Stromverbrauch im Leerlauf.</p>
+        </div>
+
+        <div class="component-box">
+            <strong>Arbeitsspeicher (RAM): 32 GB DDR4 (Non-ECC)</strong><br>
+            <p>Bei der Virtualisierung ist der Arbeitsspeicher fast immer der Flaschenhals, nicht die CPU. 32 Gigabyte bieten ausreichend Kapazität, um parallel einen Domänencontroller, einen Dateiserver und Testumgebungen zu betreiben.</p>
+        </div>
+
+        <div class="component-box">
+            <strong>Speichermedien: 2x 1TB NVMe SSDs im Software-RAID 1</strong><br>
+            <p>SSDs beschleunigen das Starten virtueller Maschinen enorm. Durch den Einsatz von zwei baugleichen SSDs im RAID-1-Verbund werden alle Systemdaten permanent gespiegelt. Fällt eine SSD aus, läuft der Server ohne Datenverlust weiter.</p>
+        </div>
+    </div>
+
+</body>
+</html>
