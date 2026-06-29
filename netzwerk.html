@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netzwerk-Labor – Jens Overkämping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #030712 0%, #0b1528 50%, #030712 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid #00d2ff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            box-sizing: border-box;
+        }
+        h1, h2 { color: #00d2ff; margin-top: 0; }
+        h2 { border-bottom: 1px solid rgba(0, 210, 255, 0.2); padding-bottom: 8px; margin-top: 30px; }
+        p { line-height: 1.6; }
+        strong { color: #00ffcc; }
+        ul { padding-left: 20px; line-height: 1.8; }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #00ffcc;
+            color: #030712;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← Zurück zum Profil</a>
+        
+        <h1>🌐 Protokoll-Labor: Infrastruktur-Grundlagen</h1>
+        <p>Erarbeitung der essenziellen Netzwerkdienste im Selbststudium zur Vorbereitung auf die Ausbildung im Bereich Systemintegration.</p>
+
+        <h2>1. DHCP (Dynamic Host Configuration Protocol)</h2>
+        <p>Automatisierte Zuweisung von Netzwerkkonfigurationen an Clients im IP-Kreis.</p>
+        <ul>
+            <li><strong>Zuweisung von:</strong> IP-Adresse, Subnetzmaske, Standard-Gateway und DNS-Servern.</li>
+            <li><strong>Praxis-Architektur:</strong> Realisierbar über Standalone-Server (z. B. Linux-Dienst) oder standardmäßig integriert in Routing-Endgeräten im Heimnetzwerk.</li>
+        </ul>
+
+        <h2>2. DNS (Domain Name System)</h2>
+        <p>Hierarchische Namensauflösung im WAN/LAN zur Übersetzung von Domainnamen in maschinenlesbare IP-Adressen.</p>
+        <ul>
+            <li><strong>A-Record:</strong> Auflösung in klassische IPv4-Adressen (beschränkter Adressraum).</li>
+            <li><strong>AAAA-Record:</strong> Auflösung in moderne IPv6-Adressen (erweiterter, zukunftssicherer Adressraum).</li>
+            <li><strong>CNAME-Record:</strong> Alias-Verweis einer Domain auf eine externe Ziel-Domain.</li>
+            <li><strong>TTL (Time to Live):</strong> Definiert die maximale Caching-Dauer der Records im lokalen Zwischenspeicher vor einer Neuabfrage.</li>
+        </ul>
+
+        <h2>3. Gateway & NAT</h2>
+        <p>Die logische Schnittstelle und Verbindungskomponente zwischen dem lokalen LAN und externen Netzen (WAN).</p>
+        <ul>
+            <li><strong>Routing:</strong> Pakete an netzwerkfremde IP-Adressen werden automatisch an das Standard-Gateway weitergeleitet.</li>
+            <li><strong>NAT (Network Address Translation):</strong> Das Gateway maskiert private, lokale IP-Adressen und übersetzt sie in eine einzige öffentliche WAN-IP.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
