@@ -259,7 +259,6 @@
                 card.style.borderColor = "#00ffcc";
                 card.style.boxShadow = "0 0 30px rgba(0, 255, 204, 0.8)";
                 
-                // KORRIGIERT: Doppelte Einträge entfernt & Struktur bereinigt
                 clearInterval(gameInterval);
                 
                 setTimeout(() => {
@@ -270,7 +269,6 @@
                     canAnswer = true;
                 }, 200);
             }
-        }); // KORRIGIERT: Schließt den EventListener sauber ab
 
         loadHighscore();
         lastSolveTime = Date.now();
