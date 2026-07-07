@@ -110,7 +110,6 @@
             <div class="highscore-display">🏆 Highscore: <span id="highscoreText">0</span></div>
         </div>
         
-        <!-- KORRIGIERT: Fester absoluter Pfad schützt vor 404-Fehlern -->
         <a href="/unterlagen-jens-9372/index.html" class="back-link">← Zurück zur Startseite</a>
     </div>
 
@@ -174,7 +173,6 @@
                 correctAnswer = num1 * num2;
                 document.getElementById('questionText').innerText = num1 + " × " + num2;
             }
-            
             currentY = 0;
             document.getElementById('questionText').style.top = currentY + "px";
             document.getElementById('userInput').value = ""; 
@@ -261,14 +259,7 @@
                 card.style.borderColor = "#00ffcc";
                 card.style.boxShadow = "0 0 30px rgba(0, 255, 204, 0.8)";
                 
-                // KORRIGIERT: Zeilenumbruch sauber gesetzt
-                clearInterval(gameInterval);
-                
-                setTimeout(() => {
-                card.style.borderColor = "#00ffcc";
-                card.style.boxShadow = "0 0 30px rgba(0, 255, 204, 0.8)";
-                
-                // Spiel-Timer stoppen für die kurze Pause
+                // KORRIGIERT: Doppelte Einträge entfernt & Struktur bereinigt
                 clearInterval(gameInterval);
                 
                 setTimeout(() => {
@@ -279,9 +270,8 @@
                     canAnswer = true;
                 }, 200);
             }
-        });
+        }); // KORRIGIERT: Schließt den EventListener sauber ab
 
-        // Spiel beim Laden der Seite initialisieren
         loadHighscore();
         lastSolveTime = Date.now();
         generateQuestion();
