@@ -56,7 +56,9 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .option-btn:hover { background: #00d2ff; color: #030712; }
+        .option-btn:hover:not(:disabled) { background: #00d2ff; color: #030712; }
+        .option-btn.correct-ans { background: #00ffcc !important; color: #030712 !important; border-color: #00ffcc !important; }
+        .option-btn.wrong-ans { background: #ff0055 !important; color: #ffffff !important; border-color: #ff0055 !important; }
         .score { margin-top: 25px; font-size: 18px; color: #a0aec0; }
         .score strong { color: #00ffcc; }
     </style>
@@ -64,14 +66,13 @@
 <body>
 
     <div class="container">
-        <a href="../index.html" class="back-btn">← Zurück zum Profil</a>
+        <a href="/unterlagen-jens-9372/index.html" class="back-btn">← Zurück zum Profil</a>
         <h1>⚡ Port- & Protokoll-Trainer</h1>
         <p>Welches IT-Protokoll nutzt standardmäßig diesen Port? Testen Sie Ihr Wissen.</p>
         
         <div class="port-display" id="portNum">Port 22</div>
         
-        <div class="options-grid" id="optionsContainer">
-        </div>
+        <div class="options-grid" id="optionsContainer"></div>
 
         <div class="score">Punkte: <strong id="scoreVal">0</strong></div>
     </div>
@@ -88,13 +89,15 @@
 
         let currentQuestion = {};
         let score = 0;
+        let canClick = true;
 
         function loadQuestion() {
+            canClick = true;
             currentQuestion = quizData[Math.floor(Math.random() * quizData.length)];
             document.getElementById('portNum').innerText = currentQuestion.port;
             
             let answers = [currentQuestion.correct, ...currentQuestion.wrong];
-            answers.sort(() => Math.random() - 0.5); // Mischen
+            answers.sort(() => Math.random() - 0.5);
 
             const container = document.getElementById('optionsContainer');
             container.innerHTML = "";
@@ -103,21 +106,34 @@
                 const btn = document.createElement('button');
                 btn.className = "option-btn";
                 btn.innerText = ans;
-                btn.onclick = () => checkAnswer(ans);
+                btn.onclick = (e) => checkAnswer(ans, e.target);
                 container.appendChild(btn);
             });
         }
 
-        function checkAnswer(selected) {
+        function checkAnswer(selected, clickedButton) {
+            if (!canClick) return;
+            canClick = false;
+
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.disabled = true);
+
             if(selected === currentQuestion.correct) {
                 score++;
-                alert("Richtig gelöst!");
+                clickedButton.classList.add('correct-ans');
             } else {
                 score = 0;
-                alert(`Falsch! Richtig gewesen wäre: ${currentQuestion.correct}`);
+                clickedButton.classList.add('wrong-ans');
+                buttons.forEach(btn => {
+                    if (btn.innerText === currentQuestion.correct) {
+                        btn.classList.add('correct-ans');
+                    }
+                });
             }
+            
             document.getElementById('scoreVal').innerText = score;
-            loadQuestion();
+            
+            setTimeout(loadQuestion, 1200);
         }
 
         loadQuestion();
