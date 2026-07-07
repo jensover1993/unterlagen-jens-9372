@@ -154,6 +154,9 @@
         function generateQuestion() {
             if (isGameOver) return;
 
+        function generateQuestion() {
+            if (isGameOver) return;
+
             const operators = ['+', '-', '*'];
             const randomOperator = operators[Math.floor(Math.random() * operators.length)];
 
@@ -173,6 +176,7 @@
                 correctAnswer = num1 * num2;
                 document.getElementById('questionText').innerText = num1 + " × " + num2;
             }
+
             currentY = 0;
             document.getElementById('questionText').style.top = currentY + "px";
             document.getElementById('userInput').value = ""; 
@@ -269,6 +273,7 @@
                     canAnswer = true;
                 }, 200);
             }
+        });
 
         loadHighscore();
         lastSolveTime = Date.now();
